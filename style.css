@@ -1,284 +1,45 @@
-/* style.css */
 :root {
-    /* Paleta basada en tu logo */
-    --primary: #9B7CB8;       /* Lila principal */
-    --primary-dark: #7A5C96;  /* Lila oscuro para hover */
-    --primary-light: #F4EFF9; /* Lila muy suave para fondos */
-    --accent: #E0B0FF;        /* Acento brillante */
-
-    --text-dark: #333333;
-    --text-light: #666666;
-    --bg-body: #F9F9F9;
-    --white: #FFFFFF;
-
-    --shadow: 0 4px 20px rgba(155, 124, 184, 0.15); /* Sombra lila suave */
-    --radius: 12px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --lila-principal: #9B7CB8;
+    --lila-oscuro: #6E4E8B;
+    --lila-claro: #EDE6F4;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--bg-body);
-    color: var(--text-dark);
-    line-height: 1.6;
 }
 
-/* HEADER */
-.header {
-    background: var(--white);
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky; /* Menú fijo al bajar */
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+/* Sobrescribir colores de Bootstrap */
+.text-primary {
+    color: var(--lila-principal) !important;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
+.btn-primary {
+    background-color: var(--lila-principal);
+    border-color: var(--lila-principal);
 }
 
-.logo {
-    height: 50px;
-    transition: transform 0.3s ease;
+.btn-primary:hover {
+    background-color: var(--lila-oscuro);
+    border-color: var(--lila-oscuro);
 }
 
-.logo:hover {
-    transform: rotate(-10deg);
+.btn-outline-primary {
+    color: var(--lila-principal);
+    border-color: var(--lila-principal);
 }
 
-.brand-name {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--primary);
-    letter-spacing: -0.5px;
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 500;
-    font-size: 0.95rem;
-    position: relative;
-    transition: color 0.3s;
-}
-
-.nav a:hover, .nav a.active {
-    color: var(--primary);
-}
-
-/* Efecto subrayado en menú */
-.nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--primary);
-    transition: width 0.3s;
-}
-
-.nav a:hover::after {
-    width: 100%;
-}
-
-.cart-btn {
-    background: var(--primary-light);
-    padding: 8px 16px;
-    border-radius: 20px;
-    color: var(--primary) !important;
-}
-
-.cart-btn:hover {
-    background: var(--primary);
-    color: white !important;
-}
-
-.cart-btn::after { display: none; } /* Quitar subrayado al carrito */
-
-/* HERO SECTION */
-.hero {
-    background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%);
-    padding: 60px 20px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    color: var(--primary-dark);
-    margin-bottom: 15px;
-    line-height: 1.2;
-}
-
-.hero p {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-}
-
-.btn-hero {
-    display: inline-block;
-    background: var(--primary);
+.btn-outline-primary:hover {
+    background-color: var(--lila-principal);
     color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(155, 124, 184, 0.4);
-    transition: transform 0.2s, background 0.2s;
 }
 
-.btn-hero:hover {
-    transform: translateY(-2px);
-    background: var(--primary-dark);
-}
-
-/* MAIN & TITLES */
-.main {
-    max-width: 1200px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 1.8rem;
-    color: var(--text-dark);
-    margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Adorno visual bajo título */
-.section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: var(--primary);
-    margin: 8px auto 0;
-    border-radius: 2px;
-}
-
-/* GRID PRODUCTOS */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 30px;
-}
-
-/* CARDS */
+/* Efecto hover en las tarjetas */
 .card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 15px;
-    text-align: center;
-    border: 1px solid rgba(0,0,0,0.03);
-    box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    border: none;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(155, 124, 184, 0.25);
-}
-
-.card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    color: var(--text-dark);
-}
-
-.price {
-    display: block;
-    font-size: 1.2rem;
-    color: var(--primary);
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.card button {
-    width: 100%;
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    padding: 10px;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.card button:hover {
-    background: var(--primary);
-    color: white;
-}
-
-/* FOOTER */
-.footer {
-    background: var(--white);
-    border-top: 1px solid #eee;
-    padding: 40px 20px;
-    text-align: center;
-    color: var(--text-light);
-}
-
-.socials {
-    margin-top: 15px;
-}
-
-.socials a {
-    margin: 0 10px;
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(155, 124, 184, 0.2) !important;
 }

@@ -5,52 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Yoonnie handmade | Tienda</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-light">
 
-<header class="header">
-    <div class="brand">
-        <img src="img/logo.png" class="logo" alt="Logo Yoonnie Handmade">
-        <span class="brand-name">Yoonnie handmade</span>
-    </div>
-
-    <nav class="nav">
-        <a href="index.html" class="active">Tienda</a>
-        <a href="about.html">Sobre mí</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="carrito.html" class="cart-btn">
-            🛒 <span id="cart-count">0</span>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="img/logo.png" alt="Logo" width="40" height="40">
+            <span class="text-primary fw-bold">Yoonnie handmade</span>
         </a>
-    </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Tienda</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">Sobre mí</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                <li class="nav-item ms-lg-3">
+                    <a class="btn btn-outline-primary rounded-pill px-4" href="carrito.html">
+                        🛒 <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="py-5 text-center text-white" style="background: linear-gradient(135deg, var(--lila-principal), var(--lila-oscuro));">
+    <div class="container py-4">
+        <h1 class="display-4 fw-bold">Hecho a mano con amor 💜</h1>
+        <p class="lead mb-4">Accesorios únicos de crochet y resina para ti.</p>
+        <a href="#productos" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary">Ver colección</a>
+    </div>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h2>Hecho a mano, <br>creado con el corazón 💜</h2>
-        <p>Descubre accesorios únicos de crochet y resina para ti.</p>
-        <a href="#productos" class="btn-hero">Ver colección</a>
+<main class="container my-5">
+    <h2 class="text-center mb-5 fw-bold text-secondary">Novedades</h2>
+
+    <div id="productos" class="row g-4">
     </div>
-</section>
-
-<main class="main">
-    <h2 class="section-title">Novedades</h2>
-
-    <section class="grid" id="productos">
-    </section>
 </main>
 
-<footer class="footer">
-    <div class="footer-content">
-        <p>© 2026 Yoonnie handmade · Hecho con 💜</p>
-        <div class="socials">
-            <a href="#">Instagram</a>
-            <a href="#">WhatsApp</a>
-        </div>
+<footer class="bg-white text-center py-4 mt-auto border-top">
+    <div class="container">
+        <p class="mb-0 text-muted">© 2026 Yoonnie handmade · Hecho con 💜</p>
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="app.js"></script>
 </body>
 </html>

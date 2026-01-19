@@ -43,3 +43,27 @@ onSnapshot(productosRef, (snapshot) => {
     `;
     });
 });
+
+onSnapshot(productosRef, (snapshot) => {
+    contenedor.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+        const producto = doc.data();
+
+        // Estructura Bootstrap: Columna > Card > Imagen + Body
+        contenedor.innerHTML += `
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column text-center">
+                    <h5 class="card-title fw-bold">${producto.nombre}</h5>
+                    <p class="card-text text-primary fs-5 fw-bold">$${producto.precio}</p>
+                    <button class="btn btn-primary rounded-pill mt-auto w-100">
+                        Agregar al carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+});
