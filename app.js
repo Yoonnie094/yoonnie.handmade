@@ -1,12 +1,9 @@
-// 🔥 Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
     getFirestore,
     collection,
     onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// ⚙️ Configuración Firebase (TU PROYECTO)
 const firebaseConfig = {
     apiKey: "TU_API_KEY",
     authDomain: "yoonnie-handmade.firebaseapp.com",
@@ -15,24 +12,14 @@ const firebaseConfig = {
     messagingSenderId: "XXXX",
     appId: "XXXX"
 };
-
-// 🚀 Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-// 📦 Referencia a colección
 const productosRef = collection(db, "productos");
-
-// 🎯 Contenedor HTML
 const contenedor = document.getElementById("productos");
-
-// ⚡ Escucha en TIEMPO REAL
 onSnapshot(productosRef, (snapshot) => {
     contenedor.innerHTML = "";
-
     snapshot.forEach((doc) => {
         const producto = doc.data();
-
         contenedor.innerHTML += `
       <div class="card">
         <img src="${producto.imagen}" alt="${producto.nombre}">
@@ -43,14 +30,10 @@ onSnapshot(productosRef, (snapshot) => {
     `;
     });
 });
-
 onSnapshot(productosRef, (snapshot) => {
     contenedor.innerHTML = "";
-
     snapshot.forEach((doc) => {
         const producto = doc.data();
-
-        // Estructura Bootstrap: Columna > Card > Imagen + Body
         contenedor.innerHTML += `
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="card h-100 shadow-sm">
