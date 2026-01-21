@@ -15,7 +15,7 @@ export function cargarLayout() {
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                     <li class="nav-item ms-lg-3">
                         <a class="btn btn-outline-primary rounded-pill px-4" href="carrito.html">
-                            🛒 <span id="cart-count">0</span>
+                            <link href="https://img.icons8.com/?size=100&id=44050&format=png&color=000000"> <span id="cart-count">0</span>
                         </a>
                     </li>
                 </ul>
