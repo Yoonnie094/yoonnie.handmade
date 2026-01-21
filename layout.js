@@ -4,14 +4,13 @@ export function cargarLayout() {
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
                 <img src="img/logo.png" alt="Logo" width="40" height="40">
-                <span class="text-primary fw-bold">Yoonnie handmade</span>
+                <span class="text-primary fw-bold"><a class="nav-link" href="index.html">Yoonnie Handmade</a></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Tienda</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Sobre mí</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                     <li class="nav-item ms-lg-3">
