@@ -41,10 +41,7 @@ async function cargarProducto() {
                     <div class="col-md-6 text-center text-md-start">
                         <h1 class="display-5 fw-bold text-primary mb-2">${producto.nombre}</h1>
                         <p class="fs-2 fw-bold text-dark mb-4">$${producto.precio}</p>
-                        <p class="lead text-muted mb-5">
-                            Este es un producto único hecho a mano con dedicación. 
-                            Ideal para un regalo especial o para ti. 💜
-                        </p>
+                        <p class="lead text-muted mb-5">$${producto.descripcion}</p>
                         <div class="d-grid gap-3 d-md-flex justify-content-md-start">
                             <button class="btn btn-primary btn-lg rounded-pill px-5">
                                 Agregar al carrito 🛒
