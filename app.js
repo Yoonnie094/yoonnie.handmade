@@ -5,12 +5,13 @@ import {
     onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
+    apiKey: "AIzaSyA9YDOWM6ZKCriOECDgNeaZ_jXR9otmhNw",
     authDomain: "yoonnie-handmade.firebaseapp.com",
+    databaseURL: "https://yoonnie-handmade-default-rtdb.firebaseio.com",
     projectId: "yoonnie-handmade",
-    storageBucket: "yoonnie-handmade.appspot.com",
-    messagingSenderId: "XXXX",
-    appId: "XXXX"
+    storageBucket: "yoonnie-handmade.firebasestorage.app",
+    messagingSenderId: "1001154851705",
+    appId: "1:1001154851705:web:27e9b33bb51a38792435a8"
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
