@@ -26,21 +26,6 @@ function formatPrecioCLP(valor) {
     }
 }
 
-function incrementarContadorCarrito(cantidad = 1) {
-    const el = document.getElementById('cart-count');
-    if (!el) return;
-    const current = Number(el.textContent) || 0;
-    el.textContent = current + cantidad;
-}
-
-function mostrarToast(message = 'Añadido al carrito') {
-    const toastEl = document.getElementById('toast-carrito');
-    if (!toastEl) return;
-    toastEl.querySelector('.toast-body').textContent = message;
-    const toast = new bootstrap.Toast(toastEl);
-    toast.show();
-}
-
 async function cargarProducto() {
     if (!idProducto) {
         detalleContenedor.innerHTML = `
@@ -55,6 +40,7 @@ async function cargarProducto() {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const producto = docSnap.data();
+            const docId = docSnap.id;
             // Asegurar campos seguros
             const nombre = producto.nombre || 'Producto';
             const imagen = producto.imagen || 'img/posavasos.png';
@@ -118,9 +104,21 @@ async function cargarProducto() {
             const btnAdd = document.getElementById('btn-add');
             if (btnAdd) {
                 btnAdd.addEventListener('click', () => {
-                    // Aquí podrías integrar almacenamiento local o lógica real de carrito
-                    incrementarContadorCarrito(1);
-                    mostrarToast(`${nombre} añadido al carrito`);
+                    // Preferir usar la API del carrito si está disponible
+                    if (window.YoonnieCart && typeof window.YoonnieCart.addItem === 'function') {
+                        window.YoonnieCart.addItem({ id: docId, nombre, precio, imagen, cantidad: 1 });
+                    } else {
+                        // fallback: incrementar contador visual
+                        const el = document.getElementById('cart-count');
+                        if (el) el.textContent = String((Number(el.textContent) || 0) + 1);
+                        // mostrar toast temporal si existe
+                        const toastEl = document.getElementById('toast-carrito');
+                        if (toastEl) {
+                            toastEl.querySelector('.toast-body').textContent = `${nombre} añadido al carrito`;
+                            const t = new bootstrap.Toast(toastEl);
+                            t.show();
+                        }
+                    }
                 });
             }
 

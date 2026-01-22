@@ -231,10 +231,60 @@ footer p { margin: 0; }
 /* Asegurar que botones claros tengan suficiente contraste en foco */
 .btn-light:focus { box-shadow: 0 0 0 4px rgba(155,124,184,0.16); }
 
-/* Responsive tweaks */
-@media (max-width: 576px) { section.container { padding:1.5rem; } .features-section .feature-box { padding:1rem; } #productos .card { min-height:320px; } }
-@media (max-width: 420px) {
-    .hero { padding-top: 2.4rem; padding-bottom: 3rem; }
-    .hero .display-4 { font-size: 1.6rem; }
-    .btn-lg { padding: 10px 20px; }
+/* =========================
+   Estilos para Carrito (Presentación Profesional)
+========================= */
+
+/* Card de carrito general */
+#carrito.card {
+    border-radius: 18px;
+}
+
+.cart-items .list-group-item {
+    border: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(110,78,139,0.06);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.cart-items .item-thumb {
+    width: 84px;
+    height: 84px;
+    flex: 0 0 84px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8f8f9;
+}
+.cart-items .item-thumb img { width:100%; height:100%; object-fit:cover; }
+
+.cart-items .item-meta { flex: 1; }
+.cart-items .item-meta h6 { margin: 0 0 0.35rem; font-size: 1rem; }
+.cart-items .item-meta .item-price { font-weight:700; color: var(--lila-dark); }
+
+.cart-items .item-actions { display:flex; gap:0.5rem; align-items:center; }
+.cart-items .qty { width:96px; }
+
+/* Empty state */
+.cart-empty img { filter: drop-shadow(0 8px 24px rgba(110,78,139,0.08)); }
+
+/* Cart summary */
+.cart-summary { padding-top: 0.25rem; }
+#cart-total { color: var(--lila-dark); }
+
+/* Empty illustration sizing */
+.empty-illustration { width: 140px; max-width: 40%; height: auto; }
+
+@media (max-width: 576px) {
+    .empty-illustration { width: 120px; }
+}
+
+/* Ajuste para que list-group-items se vean como tarjetas ligeras */
+.cart-items .list-group-item { background: transparent; }
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+    .cart-items .list-group-item { gap: 0.6rem; }
+    .cart-items .item-thumb { width: 70px; height: 70px; }
 }
