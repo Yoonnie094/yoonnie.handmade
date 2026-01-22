@@ -19,6 +19,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const productosRef = collection(db, "productos");
 const contenedor = document.getElementById("productos");
+
 onSnapshot(productosRef, (snapshot) => {
     contenedor.innerHTML = "";
     snapshot.forEach((doc) => {
@@ -36,7 +37,6 @@ onSnapshot(productosRef, (snapshot) => {
 
 onSnapshot(productosRef, (snapshot) => {
     contenedor.innerHTML = "";
-
     snapshot.forEach((doc) => {
         const producto = doc.data();
         const id = doc.id; // Obtenemos el ID del producto
@@ -63,7 +63,6 @@ onSnapshot(productosRef, (snapshot) => {
 
 onSnapshot(productosRef, (snapshot) => {
     contenedor.innerHTML = "";
-
     snapshot.forEach((doc) => {
         const producto = doc.data();
         const id = doc.id; // Obtenemos el ID del producto

@@ -1,32 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Yoonnie handmade | Tienda</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Meta base -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yoonnie Handmade: accesorios únicos hechos a mano en crochet y resina.">
+    <meta name="author" content="Yoonnie Handmade">
+
+    <title>Yoonnie Handmade | Tienda</title>
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-light d-flex flex-column min-vh-100">
-<header class="py-5 text-center text-white" style="background: linear-gradient(135deg, var(--lila-principal), var(--lila-oscuro));">
-    <div class="container py-4">
-        <h1 class="display-4 fw-bold">Hecho a mano con amor 💜</h1>
-        <p class="lead mb-4">Accesorios únicos de crochet y resina para ti.</p>
-        <a href="#productos" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary">Ver colección</a>
+
+<!-- HERO -->
+<header class="text-white text-center py-5"
+        style="background: linear-gradient(135deg, var(--lila-principal), var(--lila-oscuro));">
+    <div class="container py-5">
+        <h1 class="display-4 fw-bold mb-3">Hecho a mano con amor 💜</h1>
+        <p class="lead mb-4">
+            Accesorios únicos de crochet y resina, diseñados para destacar tu estilo.
+        </p>
+        <a href="#productos" class="btn btn-light btn-lg rounded-pill px-5 fw-semibold">
+            Ver colección
+        </a>
     </div>
 </header>
-<main class="container my-5">
-    <h2 class="text-center mb-5 fw-bold text-secondary">Novedades</h2>
+<main class="flex-grow-1">
+    <section class="container my-5" aria-labelledby="titulo-novedades">
+        <h2 id="titulo-novedades" class="text-center mb-5 fw-bold text-secondary">
+            Novedades
+        </h2>
 
-    <div id="productos" class="row g-4">
-    </div>
+        <div id="productos" class="row g-4" aria-live="polite">
+            <!-- Productos cargados por JS -->
+        </div>
+    </section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+
 <script type="module">
     import { cargarLayout } from './layout.js';
-    cargarLayout();
     import './app.js';
+
+    cargarLayout();
 </script>
+
 </body>
 </html>
