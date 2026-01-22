@@ -1,177 +1,140 @@
 /* =========================
-   Design System · Yoonnie Handmade (Pro Version)
+   Yoonnie Handmade · Estilo Colorido & Pro
 ========================= */
 :root {
-    /* Paleta refinada: Lila más sofisticado y neutros cálidos */
-    --brand-primary: #9b7cb8;
-    --brand-dark:    #6a4c87;
-    --brand-light:   #f3eef8;
+    /* Paleta inspirada en el Logo */
+    --lila-primary:  #9b7cb8; /* Tu color principal */
+    --lila-dark:     #6e4e8b; /* Para textos y contrastes */
+    --lila-light:    #efeaf5; /* Fondo suave */
+    --lila-accent:   #dcd0ea; /* Detalles */
 
-    --text-main:     #2c2830; /* Gris oscuro, no negro puro */
-    --text-muted:    #666070;
-
+    --text-main:     #4a4453; /* Gris morado oscuro (más suave que negro) */
     --white:         #ffffff;
-    --bg-body:       #faf9fc; /* Fondo muy sutil */
 
-    /* Espaciado y formas */
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-pill: 50px;
+    /* Sombras con color (Glow Effect) */
+    --shadow-soft:   0 10px 30px -5px rgba(110, 78, 139, 0.15);
+    --shadow-hover:  0 20px 40px -5px rgba(155, 124, 184, 0.25);
 
-    /* Sombras "Elevadas" (estilo Apple/Moderno) */
-    --shadow-sm: 0 2px 8px rgba(106, 76, 135, 0.08);
-    --shadow-hover: 0 15px 30px -5px rgba(106, 76, 135, 0.15);
-
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --radius-card:   20px;
+    --transition:    all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* =========================
-   Base & Tipografía
-========================= */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-body);
     color: var(--text-main);
-    line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5 {
-    font-weight: 600;
-    letter-spacing: -0.5px; /* Look más moderno */
-    color: var(--text-main);
+    /* Fondo con personalidad: Un lila muy suave */
+    background-color: var(--lila-light);
+    /* Efecto de "Aura" en el fondo (manchas de color sutiles) */
+    background-image:
+            radial-gradient(circle at 0% 0%, rgba(155, 124, 184, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 100% 100%, rgba(110, 78, 139, 0.1) 0%, transparent 50%);
+    background-attachment: fixed; /* El fondo se queda fijo al hacer scroll */
+    min-height: 100vh;
 }
 
 /* =========================
-   Componentes UI
+   Navbar (Efecto Cristal)
 ========================= */
-/* Botones: Más énfasis en la acción (CTA) */
+.navbar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px); /* Efecto vidrio empañado */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 20px rgba(110, 78, 139, 0.05);
+}
+
+.navbar-brand span {
+    color: var(--lila-dark);
+    font-weight: 700;
+}
+
+/* =========================
+   Encabezados y Textos
+========================= */
+h1, h2, h3, h5 {
+    color: var(--lila-dark);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.text-primary {
+    color: var(--lila-primary) !important;
+}
+
+/* =========================
+   Botones (Con gradientes)
+========================= */
 .btn-primary {
-    background-color: var(--brand-primary);
+    background: linear-gradient(135deg, var(--lila-primary), var(--lila-dark));
     border: none;
     padding: 12px 30px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    border-radius: 50px;
     box-shadow: 0 4px 15px rgba(155, 124, 184, 0.4);
     transition: var(--transition);
 }
 
 .btn-primary:hover {
-    background-color: var(--brand-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(155, 124, 184, 0.6);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(155, 124, 184, 0.6);
 }
 
 .btn-outline-primary {
-    color: var(--brand-primary);
-    border: 2px solid var(--brand-primary);
-    padding: 10px 25px;
+    color: var(--lila-dark);
+    border: 2px solid var(--lila-primary);
+    border-radius: 50px;
     font-weight: 600;
 }
 
 .btn-outline-primary:hover {
-    background-color: var(--brand-primary);
-    border-color: var(--brand-primary);
-    transform: translateY(-1px);
+    background-color: var(--lila-primary);
+    color: white;
+    transform: translateY(-2px);
 }
 
 /* =========================
-   Navbar (Efecto cristal)
-========================= */
-.navbar {
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.navbar-brand span {
-    font-weight: 700;
-    color: var(--brand-dark);
-    letter-spacing: -0.5px;
-}
-
-/* =========================
-   Hero Section (Encabezado)
-========================= */
-header {
-    background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-primary) 100%);
-    padding: 6rem 0 4rem;
-    position: relative;
-    clip-path: ellipse(150% 100% at 50% 0%); /* Curva sutil abajo */
-}
-
-header h1 {
-    font-size: 3.5rem;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* =========================
-   Tarjetas de Producto (Minimalistas)
+   Tarjetas de Producto
 ========================= */
 .card {
     background: var(--white);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    border: none;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
     transition: var(--transition);
     overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     box-shadow: var(--shadow-hover);
-    border-color: transparent;
 }
 
 .card img {
-    height: 280px; /* Un poco más altas */
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card:hover img {
-    transform: scale(1.05); /* Zoom suave */
-}
-
-.card-body {
-    padding: 1.5rem;
-    text-align: left; /* Alineación a la izquierda se ve más pro */
+    border-bottom: 1px solid var(--lila-light);
 }
 
 .card-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    color: var(--text-main);
 }
 
-.card-text {
-    color: var(--brand-dark) !important;
-    font-size: 1.25rem;
-    font-weight: 700;
+.price-tag {
+    color: var(--lila-dark);
+    font-weight: 800;
+    font-size: 1.2rem;
 }
 
 /* =========================
-   Sección de Beneficios (Iconos)
+   Secciones
 ========================= */
-.features-section {
-    padding: 3rem 0;
-    background: var(--white);
-    margin-bottom: 3rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+/* Fondo blanco semitransparente para secciones de contenido */
+section.container {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(110, 78, 139, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.feature-box {
-    text-align: center;
-    padding: 1rem;
-}
-
-.feature-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    background: var(--brand-light);
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    color: var(--brand-dark);
+footer {
+    background: transparent;
+    border-top: 1px solid rgba(110, 78, 139, 0.1);
+    color: var(--lila-dark);
 }
