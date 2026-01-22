@@ -138,3 +138,107 @@ footer {
     border-top: 1px solid rgba(110, 78, 139, 0.1);
     color: var(--lila-dark);
 }
+
+/* =========================
+   Mejoras visuales adicionales
+========================= */
+/* Hero: centrado y con Sutil SVG/ornamento */
+header[role="banner"] {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    color: white;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+}
+
+header p.lead {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+}
+
+/* Feature boxes */
+.features-section .feature-box {
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));
+    border-radius: 16px;
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(110,78,139,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.features-section .feature-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(110,78,139,0.09);
+}
+
+.features-section .feature-icon {
+    display:inline-block;
+    font-size: 1.6rem;
+    width:56px;
+    height:56px;
+    line-height:56px;
+    border-radius:50%;
+    background: linear-gradient(135deg, rgba(155,124,184,0.12), rgba(110,78,139,0.08));
+    margin-bottom: 0.6rem;
+}
+
+/* Cards en grid de productos: mejor espacio y imagen con borde redondeado */
+#productos .card {
+    border-radius: 18px;
+    min-height: 360px;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+#productos .card img.card-img-top {
+    height: 240px;
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#productos .card-body {
+    padding: 1rem 1.1rem;
+}
+
+#productos .card-title {
+    font-size: 1.05rem;
+}
+
+#productos .card .btn {
+    border-radius: 999px;
+}
+
+/* Skeleton loaders */
+.skeleton { background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9)); }
+.skeleton-img {
+    height: 220px;
+    background: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(245,245,245,1) 50%, rgba(230,230,230,1) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+}
+.skeleton-line {
+    height: 12px;
+    background: linear-gradient(90deg, rgba(240,240,240,1) 0%, rgba(250,250,250,1) 50%, rgba(240,240,240,1) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+    section.container { padding: 1.5rem; }
+    .features-section .feature-box { padding: 1rem; }
+    #productos .card { min-height: 320px; }
+}
