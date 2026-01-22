@@ -1,5 +1,5 @@
 /* =========================
-   Design System · Yoonnie
+   Design System · Yoonnie Handmade
 ========================= */
 :root {
     --lila-50:  #f6f2fa;
@@ -96,6 +96,44 @@ header {
             var(--lila-500),
             var(--lila-700)
     );
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+            rgba(255, 255, 255, 0.15) 1px,
+            transparent 1px
+    );
+    background-size: 24px 24px;
+    opacity: 0.3;
+}
+
+header h1 {
+    letter-spacing: -0.5px;
+}
+
+header p {
+    max-width: 520px;
+    margin-inline: auto;
+    opacity: 0.95;
+}
+
+header .btn {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   Sections
+========================= */
+section.container {
+    background-color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 4rem 2rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
 }
 
 /* =========================
@@ -104,6 +142,7 @@ header {
 .card {
     border: none;
     border-radius: var(--radius-md);
+    overflow: hidden;
     transition: transform var(--transition-base),
     box-shadow var(--transition-base);
 }
@@ -115,11 +154,28 @@ header {
 
 .card img {
     border-radius: var(--radius-sm);
+    transition: transform 0.35s ease;
+}
+
+.card:hover img {
+    transform: scale(1.06);
+}
+
+.card h5 {
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 1.1rem;
 }
 
 /* =========================
    Carrito
 ========================= */
+#cart-count {
+    font-size: 0.85rem;
+}
+
 .btn-eliminar {
     width: 36px;
     height: 36px;
